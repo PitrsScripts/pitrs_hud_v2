@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HUD</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div id="hud">
+        <div class="hud-icon wide horizontal" id="health">
+            <div class="progress-bar"></div>
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="hud-icon wide horizontal" id="armor">
+            <div class="progress-bar"></div>
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="hud-icon vertical" id="hunger">
+            <div class="progress-bar"></div>
+            <i class="fas fa-burger"></i>
+        </div>
+        <div class="hud-icon vertical" id="thirst">
+            <div class="progress-bar"></div>
+            <i class="fas fa-tint"></i>
+        </div>
+       <div class="hud-icon" id="voice">
+           <div class="progress-bar"></div>
+           <i class="fas fa-microphone"></i>
+       </div>
+       <div class="hud-icon player-id" id="player-id">
+           <i class="fa-solid fa-person"></i>
+           <span id="player-index"></span>
+       </div>
+
+       <div id="location-compass-wrapper">
+          <div id="compass">
+              <i class="fas fa-compass"></i>
+              <span id="compass-direction"></span>
+          </div>
+          <div id="location">
+              <i class="fas fa-map-marker-alt"></i>
+              <div id="location-text">
+                  <div id="street-name"></div>
+                  <div id="area-name"></div>
+              </div>
+          </div>
+       </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
