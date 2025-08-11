@@ -224,7 +224,7 @@ function SetMinimapPosition()
         "B",
         (-0.0045 + minimapXOffset) + xOffsetAdjust,
         (-0.022 + yOffsetAdjust) + minimapYOffset,
-        0.150,
+        0.145,
         0.188888
     )
 
@@ -234,7 +234,7 @@ function SetMinimapPosition()
         "B",
         (0.020 + minimapXOffset) + xOffsetAdjust,
         (0.050 + yOffsetAdjust) + minimapYOffset,
-        0.111,
+        0.107,
         0.159
     )
 
@@ -244,7 +244,7 @@ function SetMinimapPosition()
         "B",
         (-0.03 + minimapXOffset) + xOffsetAdjust,
         (-0.0005 + yOffsetAdjust) + minimapYOffset,
-        0.266,
+        0.250,
         0.237
     )
 end
@@ -286,7 +286,7 @@ RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
     TriggerServerEvent('pitrs_hud_v2:server:LoadArmorAndHealth')
     SetMinimapPosition()
     hudReady = true
-    initVoiceHUD() -- Přidáno
+    initVoiceHUD() 
 end)
 
 AddEventHandler('playerSpawned', function()
@@ -294,7 +294,7 @@ AddEventHandler('playerSpawned', function()
     TriggerServerEvent('pitrs_hud_v2:server:LoadArmorAndHealth')
     SetMinimapPosition()
     hudReady = true
-    initVoiceHUD() -- Přidáno
+    initVoiceHUD() 
 end)
 
 RegisterNetEvent('pitrs_hud_v2:client:UpdateArmorAndHealth')
