@@ -3,7 +3,7 @@
 pitrs-hud is a dynamic and immersive heads-up display system built for both ESX and QBCore frameworks. With a modern design and full voice system integration, it offers real-time player status, minimap customization, voice proximity, and more — all synced with the server to ensure data persistence and RP immersion.
 
 
-<img width="774" height="746" alt="image" src="https://github.com/user-attachments/assets/898e1c53-21e9-440d-a10a-2f85607d61db" />
+<img width="370" height="362" alt="image" src="https://github.com/user-attachments/assets/0b14d9f0-10f1-46c7-ba3c-87d12a40d4bf" />
 
 ### ✨ Features
 🧠 Live Player Status Sync
