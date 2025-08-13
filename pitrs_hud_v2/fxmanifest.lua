@@ -28,9 +28,10 @@ files {
     'html/script.js'
 }
 
-data_file 'SCALEFORM_DLL' 'stream/minimap.gfx'
+
 files {
     'stream/minimap.gfx',
+    'stream/minimap.ytd',
     'stream/squaremap.ytd'
 }
 

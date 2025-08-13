@@ -205,49 +205,6 @@ RegisterCommand("hud", function()
 end)
 
 -- Minimap
-function SetMinimapPosition()
-    local defaultAspectRatio = 1920 / 1080
-    local resolutionX, resolutionY = GetActiveScreenResolution()
-    local aspectRatio = resolutionX / resolutionY
-    local minimapXOffset, minimapYOffset = 0, 0
-    if aspectRatio > defaultAspectRatio then
-        local aspectDifference = defaultAspectRatio - aspectRatio
-        minimapXOffset = aspectDifference / 3.6
-    end
-
-    local yOffsetAdjust = 0.015  
-    local xOffsetAdjust = 0.01   
-
-    SetMinimapComponentPosition(
-        "minimap",
-        "L",
-        "B",
-        (-0.0045 + minimapXOffset) + xOffsetAdjust,
-        (-0.022 + yOffsetAdjust) + minimapYOffset,
-        0.145,
-        0.188888
-    )
-
-    SetMinimapComponentPosition(
-        "minimap_mask",
-        "L",
-        "B",
-        (0.020 + minimapXOffset) + xOffsetAdjust,
-        (0.050 + yOffsetAdjust) + minimapYOffset,
-        0.107,
-        0.159
-    )
-
-    SetMinimapComponentPosition(
-        "minimap_blur",
-        "L",
-        "B",
-        (-0.03 + minimapXOffset) + xOffsetAdjust,
-        (-0.0005 + yOffsetAdjust) + minimapYOffset,
-        0.250,
-        0.237
-    )
-end
 
 CreateThread(function()
     while true do
@@ -257,34 +214,46 @@ CreateThread(function()
     end
 end)
 
-Citizen.CreateThread(function()
-    Wait(2000)
-    local minimap = RequestScaleformMovie("minimap")
+
+
+function LoadRectMinimap()
+    local defaultAspectRatio = 1920/1080
+    local resolutionX, resolutionY = GetActiveScreenResolution()
+    local aspectRatio = resolutionX/resolutionY
+    local minimapOffset = 0
+    if aspectRatio > defaultAspectRatio then
+        minimapOffset = ((defaultAspectRatio-aspectRatio)/3.6)-0.008
+    end
     RequestStreamedTextureDict("squaremap", false)
     while not HasStreamedTextureDictLoaded("squaremap") do
-        Wait(100)
+        Wait(150)
     end
+
+    SetMinimapClipType(0)
     AddReplaceTexture("platform:/textures/graphics", "radarmasksm", "squaremap", "radarmasksm")
+    AddReplaceTexture("platform:/textures/graphics", "radarmask1g", "squaremap", "radarmasksm")
     
+    SetMinimapComponentPosition("minimap", "L", "B", -0.015 + minimapOffset, -0.025, 0.1638, 0.183)
+    SetMinimapComponentPosition("minimap_mask", "L", "B", -0.015 + minimapOffset, 0.015, 0.128, 0.20)
+    SetMinimapComponentPosition('minimap_blur', 'L', 'B', -0.02 + minimapOffset, 0.04, 0.262, 0.300)
+
+    SetBlipAlpha(GetNorthRadarBlip(), 0)
     SetRadarBigmapEnabled(true, false)
-    Wait(100)
+    SetMinimapClipType(0)
+    Wait(0)
     SetRadarBigmapEnabled(false, false)
-    SetMinimapPosition()
-    DisplayRadar(true)
-    
-    while true do
-        Wait(100)
-        BeginScaleformMovieMethod(minimap, "SETUP_HEALTH_ARMOUR")
-        ScaleformMovieMethodAddParamInt(3)
-        EndScaleformMovieMethod()
-    end
+end
+
+Citizen.CreateThread(function()
+    Wait(2000)
+    LoadRectMinimap()
 end)
 
 -- Armor and Health sync
 RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
     Wait(500)
     TriggerServerEvent('pitrs_hud_v2:server:LoadArmorAndHealth')
-    SetMinimapPosition()
+    LoadRectMinimap()
     hudReady = true
     initVoiceHUD() 
 end)
@@ -292,7 +261,7 @@ end)
 AddEventHandler('playerSpawned', function()
     Wait(1000)
     TriggerServerEvent('pitrs_hud_v2:server:LoadArmorAndHealth')
-    SetMinimapPosition()
+    LoadRectMinimap()
     hudReady = true
     initVoiceHUD() 
 end)
