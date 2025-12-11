@@ -64,8 +64,8 @@ window.addEventListener('message', function(event) {
         };
 
         if (progressBar && data.mode) {
-            progressBar.style.transition = "height 0.2s ease";
-            progressBar.style.height = modeHeight[data.mode] || "50%";
+            const newHeight = modeHeight[data.mode] || "50%";
+            progressBar.style.height = newHeight;
         }
     }
 

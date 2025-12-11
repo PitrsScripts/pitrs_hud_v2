@@ -142,8 +142,18 @@ end)
 
 
 -- PMA VOICE
+local modeNames = {
+    [1] = "whisper",
+    [2] = "normal",
+    [3] = "shouting",
+    ["whisper"] = "whisper",
+    ["normal"] = "normal",
+    ["shouting"] = "shouting"
+}
+
 RegisterNetEvent('pma-voice:setTalkingMode', function(mode)
-    proximity = mode
+    proximity = modeNames[mode] or "normal"
+    currentMicModeIndex = (mode == 1 or mode == "whisper") and 1 or (mode == 2 or mode == "normal") and 2 or 3
     updateVoiceHUD()
 end)
 
