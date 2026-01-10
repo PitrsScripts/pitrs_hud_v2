@@ -220,7 +220,7 @@ CreateThread(function()
     while true do
         Wait(300)
         local playerPed = PlayerPedId()
-        DisplayRadar(IsPedInAnyVehicle(playerPed))
+        DisplayRadar(IsPedInAnyVehicle(playerPed) and showHud)
     end
 end)
 

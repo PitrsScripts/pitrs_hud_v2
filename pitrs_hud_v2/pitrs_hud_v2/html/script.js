@@ -1,3 +1,5 @@
+let isInVehicle = false;
+
 window.addEventListener('message', function(event) {
     const data = event.data;
 
@@ -78,6 +80,38 @@ window.addEventListener('message', function(event) {
 
     if (data.action === "toggle") {
         document.getElementById("hud").style.display = data.show ? "flex" : "none";
+        const location = document.getElementById("location");
+        const compass = document.getElementById("compass");
+        const compassDirection = document.getElementById("compass-direction");
+        if (data.show) {
+            if (isInVehicle) {
+                if (location) {
+                    location.style.opacity = "1";
+                    location.style.display = "flex";
+                }
+                if (compass) {
+                    compass.style.opacity = "1";
+                    compass.style.display = "flex";
+                }
+                if (compassDirection) {
+                    compassDirection.style.opacity = "1";
+                    compassDirection.style.display = "inline";
+                }
+            }
+        } else {
+            if (location) {
+                location.style.opacity = "0";
+                setTimeout(() => location.style.display = "none", 300);
+            }
+            if (compass) {
+                compass.style.opacity = "0";
+                setTimeout(() => compass.style.display = "none", 300);
+            }
+            if (compassDirection) {
+                compassDirection.style.opacity = "0";
+                setTimeout(() => compassDirection.style.display = "none", 300);
+            }
+        }
     }
 
     if (data.action === "updateCompassDirection") {
@@ -99,12 +133,33 @@ window.addEventListener('message', function(event) {
     }
 
     if (data.action === "toggleVehicleHud") {
+        isInVehicle = data.show;
         const location = document.getElementById("location");
         const compass = document.getElementById("compass");
         const compassDirection = document.getElementById("compass-direction");
 
-        if (location) location.style.display = data.show ? "flex" : "none";
-        if (compass) compass.style.display = data.show ? "flex" : "none";
-        if (compassDirection) compassDirection.style.display = data.show ? "inline" : "none";
+        if (data.show) {
+            if (location) {
+                location.style.opacity = "1";
+                location.style.display = "flex";
+            }
+            if (compass) {
+                compass.style.opacity = "1";
+                compass.style.display = "flex";
+            }
+            if (compassDirection) {
+                compassDirection.style.opacity = "1";
+                compassDirection.style.display = "inline";
+            }
+        } else {
+            if (location) location.style.opacity = "0";
+            if (compass) compass.style.opacity = "0";
+            if (compassDirection) compassDirection.style.opacity = "0";
+            setTimeout(() => {
+                if (location) location.style.display = "none";
+                if (compass) compass.style.display = "none";
+                if (compassDirection) compassDirection.style.display = "none";
+            }, 300);
+        }
     }
 });
