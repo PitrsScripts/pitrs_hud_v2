@@ -2,7 +2,6 @@ local Framework, frameworkType
 
 
 CreateThread(function()
-    -- Detect framework first
     if GetResourceState("es_extended") == "started" then
         Framework = exports["es_extended"]:getSharedObject()
         frameworkType = "esx"
@@ -49,7 +48,6 @@ CreateThread(function()
         end
 
         MySQL.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS armor INT DEFAULT 0', {}, function()
-            -- Removed print
         end)
     elseif frameworkType == "qbcore" then
         print("^2 [SUCCESS] QB-Core Framework loaded successfully!")

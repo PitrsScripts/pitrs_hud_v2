@@ -81,7 +81,6 @@ body {
     padding: 0 calc(var(--base-size) * 0.4);   
 }
 
-
 .player-id {
     font-family: 'Space Grotesk', sans-serif;
     user-select: none;
@@ -134,7 +133,6 @@ body {
     color: white;
     font-size: calc(var(--base-size) * 1.4);
     user-select: none;
-    background-color: transparent;
     overflow: visible;       
     box-sizing: border-box;
     transition: opacity 0.3s ease-out;
@@ -237,3 +235,78 @@ body {
 }
 
 
+
+
+
+#health {
+    background-color: rgba(0, 0, 0, 0.8); /* Health icon background */
+}
+
+#armor {
+    background-color: rgba(0, 0, 0, 0.8); /* Armor icon background */
+}
+
+#hunger {
+    background-color: rgba(0, 0, 0, 0.8); /* Hunger icon background */
+}
+
+#thirst {
+    background-color: rgba(0, 0, 0, 0.8); /* Thirst icon background */
+}
+
+#voice {
+    background-color: rgba(0, 0, 0, 0.8); /* Voice icon background */
+}
+
+#health .progress-bar {
+    background: linear-gradient(90deg, #3b0679, #3b0679); /* Health progress bar */
+}
+
+#armor .progress-bar {
+    background: linear-gradient(90deg, #3b0679, #3b0679); /* Armor progress bar */
+}
+
+#hunger .progress-bar {
+    background: linear-gradient(180deg, #3b0679, #3b0679); /* Hunger progress bar */
+}
+
+#thirst .progress-bar {
+    background: linear-gradient(180deg, #3b0679, #3b0679); /* Thirst progress bar */
+}
+
+#voice .progress-bar {
+    background: linear-gradient(180deg, #3b0679, #3b0679); /* Voice progress bar */
+}
+
+
+#health i {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Health icon glow */
+}
+
+#armor i {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Armor icon glow */
+}
+
+#hunger i {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Hunger icon glow */
+}
+
+#thirst i {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Thirst icon glow */
+}
+
+#voice i {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Voice icon glow */
+}
+
+#compass i {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Compass icon glow */
+}
+
+#location i {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Location icon glow */
+}
+
+.player-id i {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Player ID icon glow */
+}
