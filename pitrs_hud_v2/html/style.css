@@ -146,7 +146,6 @@ body {
     height: calc(var(--base-size) * 3);
     border-radius: 50%;
     background-color: rgba(36, 31, 31, 0.795);
-    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     font-size: calc(var(--base-size) * 1.8);
     display: flex;
@@ -202,7 +201,6 @@ body {
     height: calc(var(--base-size) * 3);
     border-radius: 50%;
     background-color: rgba(36, 31, 31, 0.795);
-    border: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
