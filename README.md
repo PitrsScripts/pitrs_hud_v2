@@ -68,7 +68,7 @@ Fully expandable — ready for job icons, money display, or other stats
 
 |||
 | --- | --- |
-| **Framework**|ESX|
+| **Framework**|ESX,QB|
 |**Code is accessible**|Yes|
 |**Subscription-based**|No|
 |**Lines (approximately)**|~933|
